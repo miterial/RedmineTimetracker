@@ -1,0 +1,109 @@
+import edu.sc.seis.launch4j.tasks.Launch4jExternalTask
+
+plugins {
+    id 'edu.sc.seis.launch4j' version '2.1.0'
+}
+
+// Apply the java-library plugin to add support for Java Library
+apply plugin: 'application'
+apply plugin: "idea"
+
+mainClassName = "Main"
+
+targetCompatibility = '1.8'
+sourceCompatibility = '1.8'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+dependencies {
+    //guava
+    compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+
+    // testng
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+
+    // slf4j logger
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.6'
+
+    // Logging engine. From now on the logs are really processed
+    // and stored in the default location.
+    //required for logging LoggingEvents
+    compile 'ch.qos.logback:logback-core:1.2.3'
+
+    //required for logging LoggingEvents
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+
+    // redmine api
+    compile 'com.taskadapter:redmine-java-api:3.1.0'
+    // bootstrapfx
+    compile group: 'org.kordamp.bootstrapfx', name: 'bootstrapfx-core', version: '0.2.3'
+
+    // jfoenix lib
+    compile 'com.jfoenix:jfoenix:8.0.7'
+
+    //controlsfx lib
+    compile 'org.controlsfx:controlsfx:9.0.0'
+
+    // lombok lib
+    compileOnly "org.projectlombok:lombok:1.16.16"
+
+    // mongodb
+    compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.8.1'
+
+    // mongodb-driver-async
+    compile group: 'org.mongodb', name: 'mongodb-driver-async', version: '3.8.1'
+
+    // joda-time
+    compile group: 'joda-time', name: 'joda-time', version: '2.10'
+
+    // json
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
+}
+
+test {
+    useTestNG() {
+        suites '/src/test/resources/test.xml'
+        useDefaultListeners = true
+    }
+    //systemProperty 'allure.results.directory', 'build/allure-results'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/java", "src/main/resources"]
+
+            /* Required to add fxml and xml to the jar */
+            includes = ["**/*.fxml", "**/*.xml", "**/*.css", "**/*.json", "**/*.png"]
+        }
+    }
+}
+
+jar {
+    baseName = applicationName
+
+    doFirst {
+        from {
+            configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+
+    // Remove digital signature files to ensure an executable JAR file.
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+
+    manifest {
+        attributes 'Main-Class': mainClassName
+        attributes 'Class-Path': configurations.compile.collect {
+            'libs/' + it.getName()
+        }.join(' ')
+    }
+}
+
+launch4j {
+    mainClassName = 'Main'
+}

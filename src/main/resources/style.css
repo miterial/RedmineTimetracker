@@ -1,0 +1,58 @@
+.combo-box .arrow, .combo-box .arrow-button{
+    -fx-background-color: transparent;
+    -fx-text-fill: white
+}
+
+.jfx-combo-box .input-line{
+	-fx-pref-height: 0px;
+}
+.jfx-combo-box .input-focused-line{
+	-fx-pref-height: 0px;
+}
+.jfx-combo-box > .list-cell {
+    -fx-text-fill: white
+}
+
+.jfx-combo-box > .list-cell:selected:hover {
+    -fx-text-fill: black
+}
+/*.jfx-text-area {
+    -fx-padding: 10;
+    -fx-border-style: solid;
+    -fx-border-width: 1;
+    -fx-border-color: blue;
+}*/
+
+#btnTracking {
+    -fx-effect: dropshadow( gaussian, rgba( 0, 0, 0, 0.3 ), 10, 0, 1, 6 );
+    -fx-background-color: #4d94ff;
+    -fx-background-radius: 100em;
+    -fx-min-width: 60px;
+    -fx-min-height: 60px;
+    -fx-max-width: 60px;
+    -fx-max-height: 60px;
+    -fx-font-size: 12px;
+}
+
+#vboxProject {
+    -fx-background-color: #80b3ff;
+    -fx-text-fill: #fff;
+}
+#vboxIssue {
+    -fx-background-color: #4d94ff;
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.1 ), 10, 0, 0, 12 );
+}
+
+.context-menu {
+  -fx-background-color: #006699;
+  -fx-text-fill: white;
+  -fx-padding: 0;
+}
+
+.menu-item .label {
+  -fx-text-fill: white;
+}
+
+.menu-item:focused .label {
+  -fx-text-fill: black;
+}

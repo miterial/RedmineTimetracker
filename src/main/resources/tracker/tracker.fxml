@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="300.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+   <children>
+      <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+        <children>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <children>
+                  <Label text="MONTH:">
+                      <font>
+                          <Font size="8.0" />
+                      </font>
+                     </Label>
+                  <Label fx:id="labelTimeMonth" text="00:00" />
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <children>
+      
+                  <Label text="TODAY:">
+                    <font>
+                       <Font size="8.0" />
+                    </font>
+                     </Label>
+                  <Label fx:id="labelTimeToday" text="00:00" />
+                  </children>
+               </HBox>
+        </children>
+        <padding>
+        <Insets left="20.0" right="20.0" />
+        </padding>
+      </HBox>
+      <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+         <children>
+               <Label text="ON THIS TASK">
+                  <font>
+                     <Font size="8.0" />
+                  </font></Label>
+            <Label fx:id="labelIssueTime" alignment="CENTER" text="00:00">
+                  <font>
+                     <Font size="36.0" />
+                  </font></Label>
+             <JFXButton id="btnTracking" fx:id="btnTracking" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" text="START">
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+                  <font>
+                     <Font size="10.0" />
+                  </font></JFXButton>
+         </children>
+            <padding>
+               <Insets left="20.0" />
+            </padding>
+      </VBox>
+         <JFXTextArea fx:id="textComment" prefHeight="120.0" promptText="WRITE YOUR COMMENT">
+            <VBox.margin>
+               <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </VBox.margin>
+            <font>
+               <Font size="10.0" />
+            </font></JFXTextArea>
+         <VBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="300.0">
+            <children>
+            <VBox id="vboxProject" alignment="CENTER_LEFT">
+               <children>
+                  <Label text="PROJECT" textFill="WHITE" />
+                  <JFXComboBox fx:id="cbProjects" prefHeight="25.0" prefWidth="273.0" unFocusColor="WHITE" />
+               </children>
+                  <padding>
+                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  </padding>
+            </VBox>
+            <VBox id="vboxIssue" alignment="CENTER_LEFT">
+               <children>
+                  <Label text="ISSUE" textFill="WHITE" />
+                  <JFXComboBox fx:id="cbIssues" prefHeight="25.0" prefWidth="275.0" unFocusColor="WHITE" />
+               </children>
+                  <padding>
+                     <Insets bottom="20.0" left="60.0" right="20.0" top="20.0" />
+                  </padding>
+            </VBox>
+            </children>
+         </VBox>
+   </children>
+      <padding>
+         <Insets top="20.0" />
+      </padding>
+</VBox>
+</Pane>

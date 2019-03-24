@@ -1,0 +1,8 @@
+{
+  "host": "63.142.250.14",
+  "port": 27017,
+  "dbName": "timetracker",
+  "collection": "employees",
+  "username": "timetrackerAdmin",
+  "password": "1d17f946ef09b2f5517b361b53bba055"
+}

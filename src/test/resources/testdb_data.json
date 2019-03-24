@@ -1,0 +1,8 @@
+{
+  "host": "",
+  "port": 0,
+  "dbName": "",
+  "mongoCollectionName": "",
+  "username": "",
+  "password": ""
+}
